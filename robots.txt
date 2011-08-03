@@ -1,0 +1,8 @@
+#
+# robots.txt for 74HU BOARD
+# Version 1.x
+#
+
+User-agent: *
+Disallow: /admin/
+Disallow: /upload/
