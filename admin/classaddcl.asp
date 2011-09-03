@@ -116,7 +116,8 @@ UBB内容:<br/><input name="wmltxt" title="名称" emptyok="false"/><br/>
 </anchor>
 <%elseif pp=9 then%>
 <card title="添加WML标签">
-<p>WML后台标记:<br/><input name="class1" title="名称" emptyok="false"/><br/>
+<p><a href="faq.asp?p=14&amp;sid=<%=sid%>">[WML说明]</a><br/>
+WML后台标记:<br/><input name="class1" title="名称" emptyok="false"/><br/>
 WML标签内容:<br/><input name="wmltxt" title="名称" emptyok="false"/><br/>
 栏目后面:<select name="br" value="1"><option value="1">自动换行</option><option value="2">不换行</option></select><br/>
 显示顺序:<input name="pid" type="text" value="5" format="*N" size="2" emptyok="false"/><br/>
@@ -148,12 +149,12 @@ WML页面内容:<br/><input name="wmltxt" title="名称" emptyok="false"/><br/>
         <postfield name='parent' value='<%=id%>'/>
     </go>
 </anchor>
+<br/>提示：从&lt;card&gt;到&lt;/wml&gt;
 <%end if%>
 <br/>----------<br/>
 <%if id<>0 then %>
 <a href="Clist.asp?sid=<%=sid%>&amp;id=<%=id%>&amp;lxl=<%=lxl%>">[栏目分类]</a><br/>
 <%end if%>
-提示:系统身份识别sid=[sid]<br/>
 <a href="class.asp?sid=<%=sid%>">[栏目管理]</a><br/>
 <a href="index.asp?sid=<%=sid%>">[后台管理]</a>
 </p>

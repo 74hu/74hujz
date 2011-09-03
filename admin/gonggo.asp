@@ -46,7 +46,7 @@ If Not rs.eof	Then
 	rs.move(pagesize*(page-1))				
 	For i=1 To PageSize       						
 	If rs.eof Then Exit For				
-%><%=i+(page-1)*PageSize%>.<a href='gonggo.asp?sid=<%=sid%>&amp;Action=view&amp;id=<%=ubb(rs("id"))%>'><%=ubb(rs("name"))%></a><br/>
+%><%=i+(page-1)*PageSize%>.<a href='gonggo.asp?sid=<%=sid%>&amp;Action=view&amp;id=<%=noubb(rs("id"))%>'><%=noubb(rs("name"))%></a><br/>
 <%     
 	rs.moveNext						
 	Next
@@ -119,9 +119,9 @@ Function view
 			Sql = "SELECT * FROM 74hu_gonggao where id="&id
 			Rs.Open Sql,conn,1,1
 			if not (rs.bof and rs.eof)  then %>
-				标题:<%=ubb(rs("name"))%><br/>
-				内容:<%=ubb(rs("title"))%><br/>
-				时间:<%=ubb(rs("HU_time"))%><br/>
+				标题:<%=noubb(rs("name"))%><br/>
+				内容:<%=noubb(rs("title"))%><br/>
+				时间:<%=noubb(rs("HU_time"))%><br/>
 				<a href='gonggo.asp?sid=<%=sid%>&amp;Action=edit&amp;id=<%=id%>'>[编辑]</a> <a href='gonggo.asp?sid=<%=sid%>&amp;Action=del&amp;id=<%=id%>'>[删除]</a><br/>
 <a href="gonggo.asp?sid=<%=sid%>">[公告管理]</a><br/>
 			<%else%>

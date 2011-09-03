@@ -10,17 +10,17 @@ set rs=Server.CreateObject("ADODB.Recordset")
 rsstr="select * from 74hu_guest where ID=" & ID
 rs.open rsstr,conn,1,1
 response.write"<card title=""回复留言""><p>"
-response.write"标题："&UBB(rs("title"))&"<br/>"
-response.write"内容："&UBB(rs("text"))&"<br/>"
+response.write"标题："&noubb(rs("title"))&"<br/>"
+response.write"内容："&noubb(rs("text"))&"<br/>"
 response.write("时间：" & rs("HU_time") & "<br/>")
 response.write "----------<br/>"
-response.write("联系方式：" & UBB(rs("lianxi")) & "<br/>")
+response.write("联系方式：" & noubb(rs("lianxi")) & "<br/>")
 response.write("手机：" & rs("num") & "<br/>")
 response.write("型号：" & rs("agent") & "<br/>")
-response.write"回复："&UBB(rs("retext"))&"<br/>"
+response.write"回复："&noubb(rs("retext"))&"<br/>"
 response.write"时间："&rs("retime")&"<br/>"
 response.write "----------<br/>"%>
-<input name="retext" type="text" format="*M" emptyok="true" maxlength="500" value='<%=ubb(rs("retext"))%>'/><br/>
+<input name="retext" type="text" format="*M" emptyok="true" maxlength="500" value='<%=noubb(rs("retext"))%>'/><br/>
 <anchor>[回复留言]
     <go href="resave.asp?sid=<%=sid%>" method="post" accept-charset="utf-8">
         <postfield name="id" value="<%=id%>"/>

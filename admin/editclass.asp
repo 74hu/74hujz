@@ -53,14 +53,14 @@ if pp=20 then classname="WML页面"
 %>
 <%if pp=0 then %>
 <card title="编辑页面菜单">
-<p>名称:<%=ubb(rs("class"))%><br/>
+<p>名称:<%=noubb(rs("class"))%><br/>
         类型:<%=classname%><br/>
-请输入新页面名称<br/><input name="class1<%=minute(now)%><%=second(now)%>" title="名称" value="<%=ubb(rs("class"))%>" emptyok="false"/><br/>
-栏目后面:<select name="br<%=minute(now)%><%=second(now)%>" value="<%=ubb(rs("br"))%>">
+请输入新页面名称<br/><input name="class1<%=minute(now)%><%=second(now)%>" title="名称" value="<%=noubb(rs("class"))%>" emptyok="false"/><br/>
+栏目后面:<select name="br<%=minute(now)%><%=second(now)%>" value="<%=noubb(rs("br"))%>">
 			<option value="1">自动换行</option>
 			<option value="2">不换行</option>
 			</select><br/>
-显示顺序:<input name="pid<%=minute(now)%><%=second(now)%>" type="text" value="<%=ubb(rs("pid"))%>" format="*N" size="2" emptyok="false"/><br/>
+显示顺序:<input name="pid<%=minute(now)%><%=second(now)%>" type="text" value="<%=noubb(rs("pid"))%>" format="*N" size="2" emptyok="false"/><br/>
 <anchor>确认提交
     <go href="editclasssave.asp?sid=<%=sid%>&amp;id=<%=id%>" method="post" accept-charset="utf-8">
         <postfield name="class1" value="$(class1<%=minute(now)%><%=second(now)%>)"/>
@@ -71,14 +71,14 @@ if pp=20 then classname="WML页面"
 </anchor>
 <%elseif pp=1 then%>
 <card title="编辑文章栏目">
-<p>名称:<%=ubb(rs("class"))%><br/>
+<p>名称:<%=noubb(rs("class"))%><br/>
         类型:<%=classname%><br/>
-请输入新栏目名称<br/><input name="class1<%=minute(now)%><%=second(now)%>" title="名称" value="<%=ubb(rs("class"))%>" emptyok="false"/><br/>
-栏目后面:<select name="br<%=minute(now)%><%=second(now)%>" value="<%=ubb(rs("br"))%>">
+请输入新栏目名称<br/><input name="class1<%=minute(now)%><%=second(now)%>" title="名称" value="<%=noubb(rs("class"))%>" emptyok="false"/><br/>
+栏目后面:<select name="br<%=minute(now)%><%=second(now)%>" value="<%=noubb(rs("br"))%>">
 			<option value="1">自动换行</option>
 			<option value="2">不换行</option>
 			</select><br/>
-显示顺序:<input name="pid<%=minute(now)%><%=second(now)%>" type="text" value="<%=ubb(rs("pid"))%>" format="*N" size="2" emptyok="false"/><br/>
+显示顺序:<input name="pid<%=minute(now)%><%=second(now)%>" type="text" value="<%=noubb(rs("pid"))%>" format="*N" size="2" emptyok="false"/><br/>
 <anchor>确认提交
     <go href="editclasssave.asp?sid=<%=sid%>&amp;id=<%=id%>" method="post" accept-charset="utf-8">
         <postfield name="class1" value="$(class1<%=minute(now)%><%=second(now)%>)"/>
@@ -89,14 +89,14 @@ if pp=20 then classname="WML页面"
 </anchor>
 <%elseif pp=2 then%>
 <card title="编辑UBB标签">
-<p>名称:<%=ubb(rs("class"))%><br/>
-        类型:<%=classname%><br/>新UBB标签标记<br/><input name="class1<%=minute(now)%><%=second(now)%>" title="名称" value="<%=ubb(rs("class"))%>" emptyok="false"/><br/>
-新UBB标签内容<br/><input name="wmltxt<%=minute(now)%><%=second(now)%>" title="名称" value="<%=ubb(rs("wmltxt"))%>" emptyok="false"/><br/>
-栏目后面:<select name="br<%=minute(now)%><%=second(now)%>" value="<%=ubb(rs("br"))%>">
+<p>名称:<%=noubb(rs("class"))%><br/>
+        类型:<%=classname%><br/>新UBB标签标记<br/><input name="class1<%=minute(now)%><%=second(now)%>" title="名称" value="<%=noubb(rs("class"))%>" emptyok="false"/><br/>
+新UBB标签内容<br/><input name="wmltxt<%=minute(now)%><%=second(now)%>" title="名称" value="<%=noubb(rs("wmltxt"))%>" emptyok="false"/><br/>
+栏目后面:<select name="br<%=minute(now)%><%=second(now)%>" value="<%=noubb(rs("br"))%>">
 			<option value="1">自动换行</option>
 			<option value="2">不换行</option>
 			</select><br/>
-显示顺序:<input name="pid<%=minute(now)%><%=second(now)%>" type="text" value="<%=ubb(rs("pid"))%>" format="*N" size="2" emptyok="false"/><br/>
+显示顺序:<input name="pid<%=minute(now)%><%=second(now)%>" type="text" value="<%=noubb(rs("pid"))%>" format="*N" size="2" emptyok="false"/><br/>
 <anchor>确认提交
     <go href="editclasssave.asp?sid=<%=sid%>&amp;id=<%=id%>" method="post" accept-charset="utf-8">
         <postfield name="class1" value="$(class1<%=minute(now)%><%=second(now)%>)"/>
@@ -109,13 +109,13 @@ if pp=20 then classname="WML页面"
 <%elseif pp=9 then%>
 <card title="修改WML标签">
 <p>
-        类型:<%=classname%><br/>新WML标签标记:<br/><input name="class1<%=minute(now)%><%=second(now)%>" title="名称" value="<%=ubb(rs("class"))%>" emptyok="false"/><br/>
-新WML标签内容:<br/><input name="wmltxt<%=minute(now)%><%=second(now)%>" title="名称" value="<%=ubb(rs("wmltxt"))%>" emptyok="false"/><br/>
-栏目后面:<select name="br<%=minute(now)%><%=second(now)%>" value="<%=ubb(rs("br"))%>">
+        类型:<%=classname%><br/>新WML标签标记:<br/><input name="class1<%=minute(now)%><%=second(now)%>" title="名称" value="<%=noubb(rs("class"))%>" emptyok="false"/><br/>
+新WML标签内容:<br/><input name="wmltxt<%=minute(now)%><%=second(now)%>" title="名称" value="<%=noubb(rs("wmltxt"))%>" emptyok="false"/><br/>
+栏目后面:<select name="br<%=minute(now)%><%=second(now)%>" value="<%=noubb(rs("br"))%>">
 			<option value="1">自动换行</option>
 			<option value="2">不换行</option>
 			</select><br/>
-显示顺序:<input name="pid<%=minute(now)%><%=second(now)%>" type="text" value="<%=ubb(rs("pid"))%>" format="*N" size="2" emptyok="false"/><br/>
+显示顺序:<input name="pid<%=minute(now)%><%=second(now)%>" type="text" value="<%=noubb(rs("pid"))%>" format="*N" size="2" emptyok="false"/><br/>
 <anchor>确认提交
     <go href="editclasssave.asp?sid=<%=sid%>&amp;id=<%=id%>" method="post" accept-charset="utf-8">
         <postfield name="class1" value="$(class1<%=minute(now)%><%=second(now)%>)"/>
@@ -128,13 +128,13 @@ if pp=20 then classname="WML页面"
 <%elseif pp=20 then%>
 <card title="修改WML页面">
 <p>
-        类型:<%=classname%><br/>新WML页面标记:<br/><input name="class1<%=minute(now)%><%=second(now)%>" title="名称" value="<%=ubb(rs("class"))%>" emptyok="false"/><br/>
+        类型:<%=classname%><br/>新WML页面标记:<br/><input name="class1<%=minute(now)%><%=second(now)%>" title="名称" value="<%=noubb(rs("class"))%>" emptyok="false"/><br/>
 新WML页面内容:(无须文件头)<br/><input name="wmltxt<%=minute(now)%><%=second(now)%>" title="名称" value="<%=uubb(replace(LoadFile(rs("url")),LoadFile(wmlhead),""))%>" emptyok="false"/><br/>
-栏目后面:<select name="br<%=minute(now)%><%=second(now)%>" value="<%=ubb(rs("br"))%>">
+栏目后面:<select name="br<%=minute(now)%><%=second(now)%>" value="<%=noubb(rs("br"))%>">
 			<option value="1">自动换行</option>
 			<option value="2">不换行</option>
 			</select><br/>
-显示顺序:<input name="pid<%=minute(now)%><%=second(now)%>" type="text" value="<%=ubb(rs("pid"))%>" format="*N" size="2" emptyok="false"/><br/>
+显示顺序:<input name="pid<%=minute(now)%><%=second(now)%>" type="text" value="<%=noubb(rs("pid"))%>" format="*N" size="2" emptyok="false"/><br/>
 <anchor>确认提交
     <go href="wmlcl.asp?sid=<%=sid%>&amp;id=<%=id%>" method="post" accept-charset="utf-8">
         <postfield name="class1" value="$(class1<%=minute(now)%><%=second(now)%>)"/>
@@ -148,13 +148,13 @@ if pp=20 then classname="WML页面"
 
 <%elseif pp=7 then%>
 <card title="编辑文件栏目">
-<p>名称:<%=ubb(rs("class"))%><br/>
-        类型:<%=classname%><br/>新文件栏目名字:<br/><input name="class1<%=minute(now)%><%=second(now)%>" title="名称" value="<%=ubb(rs("class"))%>" emptyok="false"/><br/>
-栏目后面:<select name="br<%=minute(now)%><%=second(now)%>" value="<%=ubb(rs("br"))%>">
+<p>名称:<%=noubb(rs("class"))%><br/>
+        类型:<%=classname%><br/>新文件栏目名字:<br/><input name="class1<%=minute(now)%><%=second(now)%>" title="名称" value="<%=noubb(rs("class"))%>" emptyok="false"/><br/>
+栏目后面:<select name="br<%=minute(now)%><%=second(now)%>" value="<%=noubb(rs("br"))%>">
 			<option value="1">自动换行</option>
 			<option value="2">不换行</option>
 			</select><br/>
-显示顺序:<input name="pid<%=minute(now)%><%=second(now)%>" type="text" value="<%=ubb(rs("pid"))%>" format="*N" size="2" emptyok="false"/><br/>
+显示顺序:<input name="pid<%=minute(now)%><%=second(now)%>" type="text" value="<%=noubb(rs("pid"))%>" format="*N" size="2" emptyok="false"/><br/>
 <anchor>确认提交
     <go href="editclasssave.asp?sid=<%=sid%>&amp;id=<%=id%>" method="post" accept-charset="utf-8">
         <postfield name="class1" value="$(class1<%=minute(now)%><%=second(now)%>)"/>
@@ -165,13 +165,13 @@ if pp=20 then classname="WML页面"
 </anchor>
 <%elseif pp=8 then%>
 <card title="编辑随机广告">
-<p>名称:<%=ubb(rs("class"))%><br/>
-        类型:<%=classname%><br/>新广告名称标记:<br/><input name="class1<%=minute(now)%><%=second(now)%>" title="名称" value="<%=ubb(rs("class"))%>"/><br/>
-栏目后面:<select name="br<%=minute(now)%><%=second(now)%>" value="<%=ubb(rs("br"))%>">
+<p>名称:<%=noubb(rs("class"))%><br/>
+        类型:<%=classname%><br/>新广告名称标记:<br/><input name="class1<%=minute(now)%><%=second(now)%>" title="名称" value="<%=noubb(rs("class"))%>"/><br/>
+栏目后面:<select name="br<%=minute(now)%><%=second(now)%>" value="<%=noubb(rs("br"))%>">
 			<option value="1">自动换行</option>
 			<option value="2">不换行</option>
 			</select><br/>
-显示顺序:<input name="pid<%=minute(now)%><%=second(now)%>" type="text" value="<%=ubb(rs("pid"))%>" format="*N" size="2" emptyok="false"/><br/>
+显示顺序:<input name="pid<%=minute(now)%><%=second(now)%>" type="text" value="<%=noubb(rs("pid"))%>" format="*N" size="2" emptyok="false"/><br/>
 <anchor>确认提交
     <go href="editclasssave.asp?sid=<%=sid%>&amp;id=<%=id%>" method="post" accept-charset="utf-8">
         <postfield name="class1" value="$(class1<%=minute(now)%><%=second(now)%>)"/>
@@ -183,15 +183,15 @@ if pp=20 then classname="WML页面"
 </anchor>
 <%else%>
 <card title="编辑调用栏目">
-<p>名称:<%=ubb(rs("class"))%><br/>
-        类型:<%=classname%><br/>新调用栏目名:<br/><input name="class1<%=minute(now)%><%=second(now)%>" title="名称" value="<%=ubb(rs("class"))%>" emptyok="false"/><br/>
-调用栏目(留空则为全部栏目):<br/>栏目ID<input name="relid<%=minute(now)%><%=second(now)%>" title="条数" value="<%=ubb(rs("relid"))%>" emptyok="false"/><br/>
-调用条数:<br/><input name="num<%=minute(now)%><%=second(now)%>" title="条数" value="<%=ubb(rs("num"))%>" emptyok="false"/><br/>
-栏目后面:<select name="br<%=minute(now)%><%=second(now)%>" value="<%=ubb(rs("br"))%>">
+<p>名称:<%=noubb(rs("class"))%><br/>
+        类型:<%=classname%><br/>新调用栏目名:<br/><input name="class1<%=minute(now)%><%=second(now)%>" title="名称" value="<%=noubb(rs("class"))%>" emptyok="false"/><br/>
+调用栏目(留空则为全部栏目):<br/>栏目ID<input name="relid<%=minute(now)%><%=second(now)%>" title="条数" value="<%=noubb(rs("relid"))%>" emptyok="false"/><br/>
+调用条数:<br/><input name="num<%=minute(now)%><%=second(now)%>" title="条数" value="<%=noubb(rs("num"))%>" emptyok="false"/><br/>
+栏目后面:<select name="br<%=minute(now)%><%=second(now)%>" value="<%=noubb(rs("br"))%>">
 			<option value="1">自动换行</option>
 			<option value="2">不换行</option>
 			</select><br/>
-显示顺序:<input name="pid<%=minute(now)%><%=second(now)%>" type="text" value="<%=ubb(rs("pid"))%>" format="*N" size="2" emptyok="false"/><br/>
+显示顺序:<input name="pid<%=minute(now)%><%=second(now)%>" type="text" value="<%=noubb(rs("pid"))%>" format="*N" size="2" emptyok="false"/><br/>
 <anchor>确认提交
     <go href="editclasssave.asp?sid=<%=sid%>&amp;id=<%=id%>" method="post" accept-charset="utf-8">
         <postfield name="class1" value="$(class1<%=minute(now)%><%=second(now)%>)"/>

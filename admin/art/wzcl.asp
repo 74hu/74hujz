@@ -1,5 +1,4 @@
-﻿
-<!-- #include file="../ding.asp" -->
+﻿<!-- #include file="../ding.asp" -->
 <!-- #include file="mymin.asp" -->
 <%Call Head()%>
 <card title="文章管理"><p>
@@ -12,18 +11,18 @@ set rs=server.createobject("adodb.recordset")
 rs.open "Select * from 74hu_article order by id desc",conn,1,1
  If Not rs.eof	Then
 	PageSize=15
-		
+	j=0
 	gopage="wzcl.asp?sid="&sid&"&amp;"
 	Count=conn.execute("Select count(ID) from 74hu_article")(0)
 	page=int(request.QueryString ("page"))
 	if page<=0 or page="" then page=1
 	pagecount=(count+pagesize-1)\pagesize
-        if page>pagecount then page=pagecount
+	if page>pagecount then page=pagecount
 	rs.move(pagesize*(page-1))
 	For i=1 To PageSize
-
 	If rs.eof Then Exit For
-%><a href='wzgl.asp?sid=<%=sid%>&amp;id=<%=rs("id")%>&amp;classid=<%=rs("classid")%>'>[管理]</a><%=i+(page-1)*PageSize%>.<a href='smsview.asp?sid=<%=sid%>&amp;id=<%=rs("id")%>&amp;ids=<%=rs("classid")%>&amp;TP=1'><%=ubb(rs("title"))%></a><br/>
+	j=j+1
+%><a href='wzgl.asp?sid=<%=sid%>&amp;id=<%=rs("id")%>&amp;classid=<%=rs("classid")%>'>[管理]</a><%=j+(page-1)*PageSize%>.<a href='smsview.asp?sid=<%=sid%>&amp;id=<%=rs("id")%>&amp;ids=<%=rs("classid")%>&amp;TP=1'><%=noubb(rs("title"))%></a><br/>
 <%     
 	rs.moveNext
 	Next

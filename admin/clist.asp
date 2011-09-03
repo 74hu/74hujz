@@ -23,7 +23,7 @@ if rs("lx")=11 then lxx="最热文章"
 if rs("lx")=12 then lxx="随机文章"
 if rs("lx")=19 then lxx="站内搜框"
 if rs("lx")=20 then lxx="WML页面"
-response.write ("项目名称:"&ubb(left(rs("class"),30))&"<br/>")
+response.write ("项目名称:"&noubb(left(rs("class"),30))&"<br/>")
 response.write ("项目类型:"&lxx&"<br/>")
 response.write ("项目编号:"&rs("lx")&"<br/>")
 response.write ("项目排序:"&rs("pid")&"<br/>")
@@ -51,7 +51,7 @@ If Not rs.eof	Then
 	rs.move(pagesize*(page-1))
 	For i=1 To PageSize
 	If rs.eof Then Exit For
-%><a href="clist.asp?sid=<%=sid%>&amp;id=<%=rs("classid")%>&amp;idd=<%=id%>&amp;lx=<%=rs("lx")%>&amp;lxl=<%=lxl%>">[管理]></a><%=rs("pid")%>.<%=ubb(left(rs("class"),20))%><br/>
+%><a href="clist.asp?sid=<%=sid%>&amp;id=<%=rs("classid")%>&amp;idd=<%=id%>&amp;lx=<%=rs("lx")%>&amp;lxl=<%=lxl%>">[管理]></a><%=rs("pid")%>.<%=noubb(left(rs("class"),20))%><br/>
 
 <%     
 	rs.moveNext

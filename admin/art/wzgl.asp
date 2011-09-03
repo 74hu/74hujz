@@ -1,5 +1,4 @@
-﻿
-<!-- #include file="../ding.asp" -->
+﻿<!-- #include file="../ding.asp" -->
 <!-- #include file="mymin.asp" -->
 <%Call Head()%>
 <card title="文章管理">
@@ -11,13 +10,13 @@ call conndata
 set rs=server.createobject("adodb.recordset")
 rs.open "select * from 74hu_article where id="&id,conn,1,1
 if rs.bof and rs.eof then
-    	response.write "没有此类别！<br/>"
+response.write "没有此类别！<br/>"
 end if
 %>
-标题: <%=ubb(rs("title"))%><br/>
-来源: <%=ubb(rs("HU_author"))%><br/>
-添加日期: <%=ubb(rs("HU_date"))%><br/>
-人气: <%=ubb(rs("hit"))%><br/>
+标题: <%=noubb(rs("title"))%><br/>
+来源: <%=noubb(rs("HU_author"))%><br/>
+添加日期: <%=noubb(rs("HU_date"))%><br/>
+人气: <%=noubb(rs("hit"))%><br/>
 
 ----------<br/>
 <a href='smsview.asp?sid=<%=sid%>&amp;id=<%=id%>&amp;ids=<%=classid%>'>[预览文章]</a><br/>

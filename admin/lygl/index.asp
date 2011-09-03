@@ -13,18 +13,20 @@ set rs=Server.CreateObject("ADODB.Recordset")
 rs.open"select * from 74hu_guest order by ID desc",conn,1,1
 If Not rs.eof	Then
 	PageSize=10
+	j=0
 	gopage="index.asp?sid="&sid&"&amp;p="&p&"&amp;"
 	Count=conn.execute("Select count(ID) from 74hu_guest")(0)
 	page=int(request.QueryString ("page"))
 	if page<=0 or page="" then page=1
 	pagecount=(count+pagesize-1)\pagesize
-        if page>pagecount then page=pagecount	
+	if page>pagecount then page=pagecount	
 	rs.move(pagesize*(page-1))
-        Response.write ""&now()&"<br/>"
-        response.write ("共"&count&"条留言<br/>")
+	Response.write ""&now()&"<br/>"
+	response.write ("共"&count&"条留言<br/>")
 	For i=1 To PageSize
-	If rs.eof Then Exit For%>
-[<a href="delly.asp?sid=<%=sid%>&amp;ID=<%=rs("ID")%>&amp;p=<%=p%>">删除</a>]<%=i+(page-1)*PageSize%>.<a href='readd.asp?sid=<%=sid%>&amp;ID=<%=rs("ID")%>&amp;p=<%=p%>'><%=UBB(rs("title"))%></a><% if rs("retext")<>"" then %>[已回]<% end if%><br/>
+	If rs.eof Then Exit For
+	j=j+1%>
+[<a href="delly.asp?sid=<%=sid%>&amp;ID=<%=rs("ID")%>&amp;p=<%=p%>">删除</a>]<%=j+(page-1)*PageSize%>.<a href='readd.asp?sid=<%=sid%>&amp;ID=<%=rs("ID")%>&amp;p=<%=p%>'><%=noubb(rs("title"))%></a><% if rs("retext")<>"" then %>[已回]<% end if%><br/>
 <%
 	rs.moveNext
 	Next

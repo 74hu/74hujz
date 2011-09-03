@@ -1,7 +1,7 @@
 ﻿<!-- #include file="ding.asp" -->
 <!-- #include file="mymin.asp" -->
 <%Call Head()%>
-<%  sid=Request.querystring("sid")
+<%
 set Rs=server.createobject("adodb.recordset")
                 Sql="select * from 74hu_admin where sid='"&sid&"'"
                 Rs.open sql,conn,1,3

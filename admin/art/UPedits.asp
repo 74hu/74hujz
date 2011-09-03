@@ -9,6 +9,7 @@
 </head>
 <body>
 <%
+hu_style = True
  id=request("id")
    classid=request("classid") 
 call conndata
@@ -18,8 +19,8 @@ rs.open "select * from 74hu_article where id="&id,conn,1,1
 	response.write "<p>文章不存在<br/>"
 	else
 %><form id="form1" name="form1" method="post" action="upeditsave.asp?sid=<%=sid%>&amp;id=<%=id%>&amp;classid=<%=classid%>"><p>
-标题:<input name="title" value="<%=ubbedit(rs("title"))%>"/><br/>
-内容:<textarea name="test" cols="18" rows="10"/><%=ubbedit(rs("test"))%></textarea><br/>
+标题:<input name="title" value="<%=noubb(rs("title"))%>"/><br/>
+内容:<textarea name="test" cols="18" rows="10"/><%=noubb(rs("test"))%></textarea><br/>
 来源:<input name="author" value="<%=rs("HU_author")%>"/><br/>
 <input name="ok" type="submit" value="编辑文章"/></form>
 

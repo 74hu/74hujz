@@ -1,5 +1,4 @@
-﻿
-<!-- #include file="../ding.asp" -->
+﻿<!-- #include file="../ding.asp" -->
 <!-- #include file="mymin.asp" -->
 <%Call Head()%>
 <card title="评论管理">
@@ -35,7 +34,7 @@ ids = rs1("classid")
 title = rs1("title")
 
 	If rs.eof Then Exit For
-%>评论文章：<a href="smsview.asp?sid=<%=sid%>&amp;id=<%=id%>&amp;ids=<%=ids%>&amp;TP=1"><%=ubb(title)%></a><br/><a href="delpl.asp?sid=<%=sid%>&amp;id=<%=plid%>">[删除]</a><%=i+(page-1)*PageSize%>.<%=plip%>说:<br/><%=ubb(plnr)%><%=plsj%><br/>
+%><%=i+(page-1)*PageSize%>、评论文章：<a href="smsview.asp?sid=<%=sid%>&amp;id=<%=id%>&amp;ids=<%=ids%>&amp;TP=1"><%=noubb(title)%></a><br/>评论者IP：<%=plip%><br/>时间：<%=fordate2(plsj)%><br/>内容：<%=noubb(plnr)%><br/><a href="delpl.asp?sid=<%=sid%>&amp;id=<%=plid%>">[删除这条评论]</a><br/>
 
 <%
 	rs.moveNext

@@ -10,19 +10,7 @@ IF KEY<>0 then
 您的IP：<%=Request.ServerVariables("REMOTE_ADDR")%><br/>
 <%
 call conndata
-set rs=server.createobject("adodb.recordset")
-rs.open "select boolbase from 74hu_iplockflag",Conn,1,1
-	if not(Talers.bof and Talers.eof) then
-	Boolbase=split(talers("boolbase"),"|")
-	End if
-Talers.close
-Set Talers=nothing
-Sub Erasearraybase()
-Erase boolbase
-End Sub
-%>
-<%
-Call DoNoIpLock
+
 Operate=Trim(Request("operate"))
 If Operate="del" Then
 	DelLock
@@ -93,7 +81,7 @@ For i=0 to 3
 IPArr(i)=Trim(request.form("ip"&i+1&""))
 If IpArr(i)="" Or IsNumeric(IpArr(i))=False Then 
 	response.write ("错误提示：第"&i+1&"段必须数字")
-response.write"<br/><a href='iplock.asp?sid="&sid&"'>返回IP管理</a><br/>"
+	response.write"<br/><a href='iplock.asp?sid="&sid&"'>返回IP管理</a><br/>"
 	Exit Sub
 End If
 Next
@@ -102,11 +90,8 @@ Next
 	call error("请不要尝试封锁自己的IP！")
 End If
 
-Conn.Execute("insert into IpLock (ip1,ip2,ip3,ip4,ipsame,iplock) values ("&Cint(IPArr(0))&","&Cint(IPArr(1))&","&Cint(IPArr(2))&","&Cint(IPArr(3))&","&Cint(Request.Form("ipsame"))&",'"&Now&"|"&Request.form("reason")&"')")
-BoolBase=1
-dim BoolBasef
-BoolBasef=BoolBase&"|"
-Conn.ExeCute("Update IpLockFlag set Boolbase='"&BoolBasef&"'")
+Conn.Execute("insert into 74hu_IpLock (ip1,ip2,ip3,ip4,ipsame,iplock) values ("&Cint(IPArr(0))&","&Cint(IPArr(1))&","&Cint(IPArr(2))&","&Cint(IPArr(3))&","&Cint(Request.Form("ipsame"))&",'"&Now&"|"&Request.form("reason")&"')")
+
 response.write ("操作提示：ＩＰ-"&RealLock(Cint(Request.Form("ipsame")),iparr(0),iparr(1),iparr(2),iparr(3))&" 已被锁定！")
 response.write"<br/><a href='iplock.asp?sid="&sid&"'>返回IP管理</a><br/>"
 End Sub
@@ -124,25 +109,15 @@ End IF
 End Function
 
 Sub DelLock
-	Conn.Execute("Delete from IpLock where ipid="&Cint(Request("ipid"))&"")
+	Conn.Execute("Delete from 74hu_IpLock where ipid="&Cint(Request("ipid"))&"")
 	response.write ("操作提示：IP已被删除！")
-response.write"<br/><a href='iplock.asp?sid="&sid&"'>返回IP管理</a><br/>"
+	response.write"<br/><a href='iplock.asp?sid="&sid&"'>返回IP管理</a><br/>"
 End Sub
 
-Sub DoNoIpLock()
-Set Talers=Conn.Execute("select top 1 ipid from IpLock")
-	If Talers.Eof Then
-		BoolBase=0
-dim BoolBasef
-BoolBasef=BoolBase&"|"
-		Conn.ExeCute("Update IpLockFlag set Boolbase='"&BoolBasef&"'")
-	End If
-Talers.Close
-Set Talers=Nothing
-End Sub
 response.write"------------<br/>"&chr(13)
 response.write"操作说明：<br/>封锁IP是为了仿止捣乱者扰乱网站正常运行而做出的加黑和屏蔽处理<br/>封锁IP可以单独封锁一个IP，也可以进行IP段封锁<br/>单独封锁IP-->填写IP后，选择“前4段相同”<br/>IP段封锁IP-->填写IP后，任意选择IP相同段，如选择“前2段相同”，前两段IP就写上限制的段位，后面两位IP段要以随意写上即可达到锁封限制的IP段<br/>特别注意：封锁IP可能导致部分用户无法访问，一般要单独封锁IP<br/>"
 response.write"<a href='index.asp?sid="&sid&"'>[站长工具]</a><br/>"
 response.write"<a href='../index.asp?sid="&sid&"'>[后台管理]</a>"
+CloseConn()
 %>
 </p></card></wml>

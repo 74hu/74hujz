@@ -1,6 +1,6 @@
 ﻿<%
 Sub Head() 
-    Response.ContentType = "text/vnd.wap.wml"
+    Response.ContentType = "text/vnd.wap.wml; charset=utf-8"
     Response.Write "<?xml version=""1.0"" encoding=""utf-8""?>"
     Response.Write "<!DOCTYPE wml PUBLIC ""-//WAPFORUM//DTD WML 1.1//EN"" ""http://www.wapforum.org/DTD/wml_1.1.xml"">"
     Response.Write "<wml>"
@@ -11,35 +11,35 @@ Sub Head()
 End Sub
 
 Sub Last()
-response.write "<br/><a href=""../index.asp?sid="&sid&""">后台管理</a>"
-response.write "<br/><a href=""/index.asp"">网站首页</a><br/>"
-response.write "</p></card></wml>"
+	response.write "<br/><a href=""../index.asp?sid="&sid&""">后台管理</a>"
+	response.write "<br/><a href=""/index.asp"">网站首页</a><br/>"
+	response.write "</p></card></wml>"
     Response.End
 End Sub
 
 Sub rootLast()
-response.write "<br/><a href=""index.asp?sid="&sid&""">后台管理</a>"
-response.write "<br/><a href=""/index.asp"">网站首页</a><br/>"
-response.write "</p></card></wml>"
-    Response.End
+	response.write "<br/><a href=""index.asp?sid="&sid&""">后台管理</a>"
+	response.write "<br/><a href=""/index.asp"">网站首页</a><br/>"
+	response.write "</p></card></wml>"
+	Response.End
 End Sub
 
 Function adsetkf(adnum)
-		Set conn = Server.CreateObject("ADODB.Connection")
+	Set conn = Server.CreateObject("ADODB.Connection")
 	connstr="driver={Microsoft Access Driver (*.mdb)};pwd=dbq=" & Server.MapPath(""&db&"")
 	conn.Open connstr
-dim rsadset,adset1,adset2,adset3,adset4,adset5
-set rsadset=server.CreateObject("adodb.recordset")
-rsadset.open"select "&adnum&" from 74hu_control where ID=1",conn,1,1
-if not rsadset.eof then
-adsetkf=rsadset(adnum)
-end if
-rsadset.close
-set rsadset=nothing
+	dim rsadset
+	set rsadset=server.CreateObject("adodb.recordset")
+	rsadset.open"select "&adnum&" from 74hu_control where ID=1",conn,1,1
+	if not rsadset.eof then
+	adsetkf=rsadset(adnum)
+	end if
+	rsadset.close
+	set rsadset=nothing
 end function
 
 Function conndata()
-		Set conn = Server.CreateObject("ADODB.Connection")
+	Set conn = Server.CreateObject("ADODB.Connection")
 	connstr="driver={Microsoft Access Driver (*.mdb)};pwd=;dbq=" & Server.MapPath(""&db&"")
 	conn.Open connstr
 end function
@@ -48,14 +48,14 @@ Function Error(erstr)
   conn.close
   set conn=Nothing
   Response.write erstr & chr(13)
-  Response.write "<br/><anchor><prev/>&#x8FD4;&#x56DE;</anchor>" & chr(13)
+  Response.write "<br/><anchor><prev/>&#x8FD4;&#x56DE;</anchor>"
   Response.write "</p></card></wml>"
   Response.end
 end Function
 
 Function CreatedTextFiles(FileName,body)
-On Error Resume Next
-If InStr(FileName, ":") = 0 Then FileName = Server.MapPath(FileName)
+	On Error Resume Next
+	If InStr(FileName, ":") = 0 Then FileName = Server.MapPath(FileName)
 	Dim oStream
 	Set oStream = CreateObject("ADODB.Stream")
 	oStream.Type = 2 '设置为可读可写

@@ -1,4 +1,6 @@
-﻿<%  sid=Request.querystring("sid")
+﻿<%
+
+sid=getFilter("sid","")
 
 set rsqq=server.createobject("adodb.recordset")
 Sqlqq="select * from 74hu_admin where sid='"&sid&"'"

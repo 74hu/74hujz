@@ -63,5 +63,5 @@ ss=Int((9999)*Rnd +1000)
 验证码:<%=ss%><br/><input name="num1<%=minute(now)%><%=second(now)%>" title="验证码" type="text"/><br/>
 <anchor>登陆<go href="login.asp" method="post" accept-charset="utf-8">
 <postfield name="TP" value="1"/><postfield name="username" value="$(username<%=minute(now)%><%=second(now)%>)"/><postfield name="password" value="$(password<%=minute(now)%><%=second(now)%>)"/><postfield name="password1" value="$(password1<%=minute(now)%><%=second(now)%>)"/><postfield name="password2" value="$(password2<%=minute(now)%><%=second(now)%>)"/><postfield name="num1" value="$(num1<%=minute(now)%><%=second(now)%>)"/><postfield name="num2" value="<%=ss%>"/></go></anchor> <a href="login.asp">重置</a><br/>
-<br/>温馨提示：<br/>20分钟无操作自动退出<br/>
+<br/>温馨提示：<br/>20分钟无操作自动退出<br/>默认帐户密码都为74hu<br/>
 <%end if%></p></card></wml>

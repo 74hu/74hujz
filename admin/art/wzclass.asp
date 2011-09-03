@@ -10,16 +10,18 @@ set rs=server.createobject("adodb.recordset")
 rs.open "select * from 74hu_list order by classid asc",conn,1,1
 If Not rs.eof	Then
 	PageSize=15
+	j=0
 	gopage="wzclass.asp?sid="&sid&"&amp;"
 	Count=rs.recordcount
 	page=int(request.QueryString ("page"))
 	if page<=0 or page="" then page=1
 	pagecount=(count+pagesize-1)\pagesize
-        if page>pagecount then page=pagecount
+	if page>pagecount then page=pagecount
 	rs.move(pagesize*(page-1))
 	For i=1 To PageSize
 	If rs.eof Then Exit For
-%>[<a href="wzclasscl.asp?sid=<%=sid%>&amp;id=<%=rs("classid")%>">管理</a>]<%=i+(page-1)*PageSize%>.<a href="adminsmscl.asp?sid=<%=sid%>&amp;id=<%=rs("classid")%>"><%=ubb(left(rs("class"),10))%></a>[栏目ID<%=rs("classID")%>]<br/>
+	j=j+1
+%>[<a href="wzclasscl.asp?sid=<%=sid%>&amp;id=<%=rs("classid")%>">管理</a>]<%=j+(page-1)*PageSize%>.<a href="adminsmscl.asp?sid=<%=sid%>&amp;id=<%=rs("classid")%>"><%=noubb(left(rs("class"),10))%></a>[栏目ID<%=rs("classID")%>]<br/>
 <%     
 	rs.moveNext
 	Next

@@ -47,7 +47,7 @@ If Not rs.eof	Then
 	rs.move(pagesize*(page-1))				
 	For i=1 To PageSize       						
 	If rs.eof Then Exit For				
-%><%=i+(page-1)*PageSize%>.<a href="wzggao.asp?sid=<%=sid%>&amp;Action=view&amp;id=<%=Rs("id")%>&amp;TP=<%=TP%>"><%=ubb(Rs("name"))%></a><br/>点击：<%=Rs("tid")%><br/><%     
+%><%=i+(page-1)*PageSize%>.<a href="wzggao.asp?sid=<%=sid%>&amp;Action=view&amp;id=<%=Rs("id")%>&amp;TP=<%=TP%>"><%=noubb(Rs("name"))%></a><br/>点击：<%=Rs("tid")%><br/><%     
 	rs.moveNext								
 	Next
 	if page-pagecount<0 then response.write "<a href="""&gopage&"page="&page+1&""">下页</a>"
@@ -118,7 +118,7 @@ if id<>"" then
 		<p>
         广告名称:<%=rs2("name")%><br/>
         点击次数:<%=rs2("tid")%><br/>
-	广告地址:<%=ubb(rs2("url"))%><br/><br/>
+	广告地址:<%=noubb(rs2("url"))%><br/><br/>
 <a href="wzggao.asp?Action=edit&amp;id=<%=Rs2("id")%>&amp;sid=<%=sid%>&amp;TP=<%=TP%>">[修改]</a> <a href="wzggao.asp?Action=del&amp;id=<%=Rs2("id")%>&amp;sid=<%=sid%>&amp;TP=<%=TP%>">[删除]</a><br/>
 <a href="wzggao.asp?sid=<%=sid%>&amp;TP=<%=TP%>">[广告管理]</a><br/>
 <a href="ggao.asp?sid=<%=sid%>">[广告中心]</a><br/>
@@ -246,7 +246,7 @@ rs.open "select * from 74hu_gogo where id= "&id&" and typeID="&TP,conn,1,3
 	广告名称:<br/>
 	<input name="name<%=tt%>" emptyok="false" maxlength="50" value="<%=rs2("name")%>"/><br/>
 	广告地址:<br/>
-	<input name="url<%=tt%>" emptyok="false" maxlength="255" value="<%=ubb(rs2("url"))%>"/><br/>
+	<input name="url<%=tt%>" emptyok="false" maxlength="255" value="<%=noubb(rs2("url"))%>"/><br/>
 <anchor>修改广告<go href="wzggao.asp?Action=edit&amp;add=true&amp;id=<%=id%>&amp;sid=<%=sid%>&amp;TP=<%=TP%>" method="post">
 <postfield name="url" value="$(url<%=tt%>)" />
 <postfield name="name" value="$(name<%=tt%>)" />

@@ -30,7 +30,7 @@ If Not rs.eof	Then
 	rs.move(pagesize*(page-1))
 	For i=1 To PageSize
 	If rs.eof Then Exit For
-%><a href="clist.asp?sid=<%=sid%>&amp;id=<%=rs("classid")%>&amp;lx=<%=rs("lx")%>">[管理]></a><%=rs("pid")%>.<%=ubb(left(rs("class"),10))%><br/>
+%><a href="clist.asp?sid=<%=sid%>&amp;id=<%=rs("classid")%>&amp;lx=<%=rs("lx")%>">[管理]></a><%=rs("pid")%>.<%=noubb(left(rs("class"),10))%><br/>
 <%     
 	rs.moveNext
 	Next

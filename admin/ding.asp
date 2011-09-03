@@ -1,5 +1,7 @@
 ﻿<!--#include file="../f.asp"--><!--#include file="../db.asp"-->
 <%
+hu_style = False
+
 on error resume next
 connstr="DBQ="+server.mappath(""&dbm&"")+";DefaultDir=;DRIVER={Microsoft Access Driver (*.mdb)};pwd=;"
 set conn=server.createobject("ADODB.CONNECTION")
