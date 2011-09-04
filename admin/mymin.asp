@@ -1,4 +1,6 @@
 ﻿<%
+'ip封锁
+ipLock(User_Ip)
 
 sid=getFilter("sid","")
 

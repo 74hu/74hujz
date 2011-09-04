@@ -431,9 +431,9 @@ Function changeWord(str)
 	changeWord = hu_changeWord(str,hu_badWord,"[滤]")
 End Function
 'IP封锁
-Sub ipLock(User_Ip)
+Sub ipLock(str)
 	Dim IpArray,WhyIpLock,IpSQL,IpRS
-	IpArray=split(User_Ip,".")
+	IpArray=split(str,".")
 	IpSQL="SELECT iplock From 74hu_IpLock Where  "& _
 	" (ipsame=4 and ip1="&Cint(IpArray(0))&" and ip2="&Cint(IpArray(1))&" and ip3="&Cint(IpArray(2))&" and ip4="&Cint(IpArray(3))&" )  "& _
 	" Or (ipsame=3 and  ip1="&Cint(IpArray(0))&"  and  ip2="&Cint(IpArray(1))&"  and  ip3="&Cint(IpArray(2))&" )   "& _
@@ -448,10 +448,10 @@ Sub ipLock(User_Ip)
 	Set IpRS=Nothing
 End Sub
 '流量统计
-Sub setStatistics(User_Ip)
+Sub setStatistics(str)
 	Dim HU_users,HU_userip,rsip
 	HU_users="七色虎"
-	HU_userip=User_Ip
+	HU_userip=str
 	Set rsip = Server.CreateObject("ADODB.Recordset")
 	rsip.open"select HU_Date,HU_Tod,HU_Today from 74hu_counter",conn,1,1
 	HU_Date=rsip("HU_Date")
