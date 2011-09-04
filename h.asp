@@ -13,8 +13,7 @@ Set Conn = Server.CreateObject("ADODB.Connection")
 Conn.ConnectionString="DBQ="&server.mappath(""&db&"")&";DRIVER={Microsoft Access Driver (*.mdb)};pwd="
 Conn.open
 '取Ip地址
-User_Ip=Request.ServerVariables("HTTP_X_FORWARDED_FOR")
-if User_Ip="" then User_Ip=Request.servervariables("REMOTE_ADDR")
+User_Ip=getIP()
 '构造随机数
 Time_r=minute(now)&second(now)
 'ip封锁

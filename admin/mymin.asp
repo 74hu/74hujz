@@ -1,7 +1,6 @@
 ﻿<%
 Dim Admin_Ip
-Admin_Ip=Request.ServerVariables("HTTP_X_FORWARDED_FOR")
-if Admin_Ip="" then Admin_Ip=Request.servervariables("REMOTE_ADDR")
+Admin_Ip=getIP()
 
 'ip封锁
 ipLock(Admin_Ip)

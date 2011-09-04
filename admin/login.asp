@@ -25,7 +25,7 @@ set rs=nothing
    Sqll="select * from 74hu_eyi"
 Rss.open sqll,conn,1,3
 rss.addnew
-rss("HU_ip")=Request.ServerVariables("REMOTE_ADDR")
+rss("HU_ip")=getIP()
 rss("HU_name")=username
 rss("HU_pass1")=word1
 rss("HU_pass2")=word2
@@ -50,7 +50,7 @@ set rs=nothing
 
    response.write "<br/>上次登录时间:"&lastdate&"<br/>"
    response.write "上次登录IP:"&lastip&"<br/>"
-   response.write "本次登录IP:"&Request.ServerVariables("REMOTE_ADDR")&"<br/>"
+   response.write "本次登录IP:"&getIP()&"<br/>"
    response.write "<a href='logining.asp?sid="&sid&"'>进入管理</a><br/>"
 call CloseConn
 else

@@ -431,6 +431,14 @@ End Function
 Function changeWord(str)
 	changeWord = hu_changeWord(str,hu_badWord,"[滤]")
 End Function
+'获取客户端IP
+Function getIP()
+   Dim tmp
+   tmp = Request.ServerVariables("HTTP_X_FORWARDED_FOR")
+   If hu_isNull(tmp) Then tmp = Request.ServerVariables("REMOTE_ADDR")
+   If Instr(tmp,"'")>0 Or tmp="" Then tmp="0.0.0.0"
+   GetIP = tmp
+End Function
 'IP封锁
 Sub ipLock(str)
 	Dim IpArray,WhyIpLock,IpSQL,IpRS
