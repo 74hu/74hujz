@@ -157,6 +157,7 @@ End Sub
 '显示内容且停止输出
 Sub wn(str)
 	Response.Write str
+	getClose
 	Response.End
 End Sub
 '网页跳转
@@ -404,7 +405,7 @@ Function getImg(str, name, ex)
 	Dim newstr
 	newstr = ""
 	If Not hu_isNull(ex) Then newstr = ex
-	getImg = "<img src=""" & str & """ title=""" & name & """ alt=""loading.."" " & ex & " />"
+	getImg = "<img src=""" & str & """ title=""" & name & """ alt=""loading.."" " & newstr & " />"
 End Function
 '清除缓存
 Sub cache(str)
