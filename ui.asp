@@ -181,7 +181,6 @@ Sub showArticle()
 		"<br/>第<input name=""i"" type=""text"" format=""*N"" emptyok=""true"" size=""2"" value="""" maxlength=""2""/>页"&_
 		"<anchor>跳转<go href=""?aid=art&amp;id="&id&"&amp;p="&p&""" accept-charset=""utf-8"">"&_
 		"<postfield name=""page"" value=""$(i)""/></go></anchor><br/>"
-
 	w "-----------<br/>※快速评论：<br/>"&_
 		"<input type=""text"" name=""pl"&Time_r&""" title=""输入内容"" value="""" maxlength=""200""/><br/>"&_
 		"<anchor title=""确定"">提交<go method=""get"" href=""?aid=diss&amp;id="&id&"&amp;p="&p&""">"&_
@@ -209,7 +208,6 @@ Sub showArticle()
 	call adstr(2)
 	w "<br/>"
 	end if
-	w wapurl&" ["&fordate2(Now)&"]"
 	rs.close
 	set rs=nothing
 	rss.close
@@ -301,7 +299,6 @@ Sub showsArticle()
 	call adstr(2)
 	w "<br/>"
 	end if
-	w wapurl&" ["&fordate2(Now)&"]"
 	rs.close
 	set rs=nothing
 	rss.close
